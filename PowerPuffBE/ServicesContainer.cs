@@ -2,6 +2,7 @@
 
 using Data;
 using Data.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Service.Mappers;
 using Service.Services;
 
@@ -21,7 +22,7 @@ public static class ServicesContainer
         using (var serviceScope = app.Services.CreateScope())
         {
             var context = serviceScope.ServiceProvider.GetRequiredService<PowerPuffDbContext>();
-            //context.Database.Migrate();
+            context.Database.Migrate();
     
             if (!context.Reactors.Any())
             {
