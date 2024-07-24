@@ -4574,11 +4574,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.csproj",
+      "projectUniqueName": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE\\PowerPuffBE.csproj",
       "projectName": "PowerPuffBE",
-      "projectPath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.csproj",
+      "projectPath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE\\PowerPuffBE.csproj",
       "packagesPath": "C:\\Users\\a6bjv49\\.nuget\\packages\\",
-      "outputPath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE\\obj\\",
+      "outputPath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\a6bjv49\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4595,8 +4595,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Service\\PowerPuffBE.Service.csproj": {
-              "projectPath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Service\\PowerPuffBE.Service.csproj"
+            "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Service\\PowerPuffBE.Service.csproj": {
+              "projectPath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Service\\PowerPuffBE.Service.csproj"
             }
           }
         }

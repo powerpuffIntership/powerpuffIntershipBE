@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kwWbINPriIm+/ALCw885WIFX6oKLQt2dek27SBpyGqg3+Jtd7nnxpsoNVB2SxS2jK1Ck7mhF3FhnHupPZPrrWg==",
+  "dgSpecHash": "Flq5+S+P/ApR2Fel+B6ODIKq6xIsiO6lpw7GH4kmIzTaxYtEqMfiSMh3LBXXTfllM+WjjjfmUXS92qLTPyCI7A==",
   "success": true,
-  "projectFilePath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Service\\PowerPuffBE.Service.csproj",
+  "projectFilePath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Service\\PowerPuffBE.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\a6bjv49\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\a6bjv49\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

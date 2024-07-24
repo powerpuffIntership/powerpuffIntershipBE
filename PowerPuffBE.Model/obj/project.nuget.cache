@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YodS+loD6JsJ0d52uFxj6Jkm5HHb4uy4nLpN04HEIxcQBHcSjGLotTJM89WIfmUQDFE8NLuofG4k+bekQEG55Q==",
+  "dgSpecHash": "RitQUSblyMHD8RNXJYV4AJuOtEt7SrIRgi5k+PgrjZXQikSzVlqU4/yU8NZ++PVqRYPuBIlq6AxlU5r5ne72yA==",
   "success": true,
-  "projectFilePath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Model\\PowerPuffBE.Model.csproj",
+  "projectFilePath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Model\\PowerPuffBE.Model.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

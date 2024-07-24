@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Model\\PowerPuffBE.Model.csproj",
+      "projectUniqueName": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Model\\PowerPuffBE.Model.csproj",
       "projectName": "PowerPuffBE.Model",
-      "projectPath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Model\\PowerPuffBE.Model.csproj",
+      "projectPath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Model\\PowerPuffBE.Model.csproj",
       "packagesPath": "C:\\Users\\a6bjv49\\.nuget\\packages\\",
-      "outputPath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Model\\obj\\",
+      "outputPath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Model\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\a6bjv49\\AppData\\Roaming\\NuGet\\NuGet.Config",

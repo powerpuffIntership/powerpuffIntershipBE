@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Service\\PowerPuffBE.Service.csproj": {}
+    "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Service\\PowerPuffBE.Service.csproj": {}
   },
   "projects": {
-    "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj": {
+    "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj",
+        "projectUniqueName": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj",
         "projectName": "PowerPuffBE.Data",
-        "projectPath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj",
+        "projectPath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj",
         "packagesPath": "C:\\Users\\a6bjv49\\.nuget\\packages\\",
-        "outputPath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Data\\obj\\",
+        "outputPath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\a6bjv49\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -81,14 +81,14 @@
         }
       }
     },
-    "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Model\\PowerPuffBE.Model.csproj": {
+    "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Model\\PowerPuffBE.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Model\\PowerPuffBE.Model.csproj",
+        "projectUniqueName": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Model\\PowerPuffBE.Model.csproj",
         "projectName": "PowerPuffBE.Model",
-        "projectPath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Model\\PowerPuffBE.Model.csproj",
+        "projectPath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Model\\PowerPuffBE.Model.csproj",
         "packagesPath": "C:\\Users\\a6bjv49\\.nuget\\packages\\",
-        "outputPath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Model\\obj\\",
+        "outputPath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\a6bjv49\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -136,14 +136,14 @@
         }
       }
     },
-    "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Service\\PowerPuffBE.Service.csproj": {
+    "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Service\\PowerPuffBE.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Service\\PowerPuffBE.Service.csproj",
+        "projectUniqueName": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Service\\PowerPuffBE.Service.csproj",
         "projectName": "PowerPuffBE.Service",
-        "projectPath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Service\\PowerPuffBE.Service.csproj",
+        "projectPath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Service\\PowerPuffBE.Service.csproj",
         "packagesPath": "C:\\Users\\a6bjv49\\.nuget\\packages\\",
-        "outputPath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Service\\obj\\",
+        "outputPath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\a6bjv49\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -160,11 +160,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj": {
-                "projectPath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj"
+              "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj": {
+                "projectPath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj"
               },
-              "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Model\\PowerPuffBE.Model.csproj": {
-                "projectPath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Model\\PowerPuffBE.Model.csproj"
+              "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Model\\PowerPuffBE.Model.csproj": {
+                "projectPath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Model\\PowerPuffBE.Model.csproj"
               }
             }
           }

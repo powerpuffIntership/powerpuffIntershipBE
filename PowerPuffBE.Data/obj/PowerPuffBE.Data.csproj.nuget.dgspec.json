@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj": {}
+    "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj": {}
   },
   "projects": {
-    "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj": {
+    "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj",
+        "projectUniqueName": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj",
         "projectName": "PowerPuffBE.Data",
-        "projectPath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj",
+        "projectPath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Data\\PowerPuffBE.Data.csproj",
         "packagesPath": "C:\\Users\\a6bjv49\\.nuget\\packages\\",
-        "outputPath": "C:\\ROBERT\\PowerPuffBE\\PowerPuffBE\\PowerPuffBE.Data\\obj\\",
+        "outputPath": "C:\\ROBERT\\powerpuffIntershipBE\\PowerPuffBE.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\a6bjv49\\AppData\\Roaming\\NuGet\\NuGet.Config",
