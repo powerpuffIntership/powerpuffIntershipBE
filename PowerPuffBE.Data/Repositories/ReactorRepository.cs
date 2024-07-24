@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 public interface IReactorRepository
 {
-    Task<IEnumerable<ReactorEntity>> GetAllReactors();
+    Task<IEnumerable<ReactorEntity>> GetAllReactors(bool extended = false);
     Task<ReactorEntity> GetReactorExtendedById(Guid id);
     Task<IEnumerable<ReactorEntity>> GetReactorImageList();
     Task Update(ReactorEntity reactor);
@@ -19,9 +19,15 @@ public class ReactorRepository : IReactorRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<ReactorEntity>> GetAllReactors()
+    public async Task<IEnumerable<ReactorEntity>> GetAllReactors(bool extended = false)
     {
-        return await _context.Reactors.ToListAsync();
+        var reactors = _context.Reactors.AsQueryable();
+        if (extended)
+        {
+            reactors = _context.Reactors.Include(r => r.ProductionChecks).AsQueryable();
+        }
+
+        return await reactors.ToListAsync();
     }
     
     public async Task<IEnumerable<ReactorEntity>> GetReactorImageList()

@@ -27,7 +27,7 @@ public class ReactorMapper : IReactorMapper
 
     public IEnumerable<ReactorDTO> MapListToDTO(List<ReactorEntity> entityList)
     {
-        return entityList.Select(x => MapToDTO(x));
+        return entityList.Select(MapToDTOWithDetails);
     }
 
 
@@ -57,6 +57,7 @@ public class ReactorMapper : IReactorMapper
                     //Status = metoda do kalkulacji statusow
                 };
             }),
+            //Links = generowac linki , poki co hardcoded 
         };
     }
 

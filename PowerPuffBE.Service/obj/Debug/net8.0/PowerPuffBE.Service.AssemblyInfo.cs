@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PowerPuffBE.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b2b7eb06d7a1a4a9c679238b376f6d4c1639185d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+578d9234415c182685fac561df337acf35e1a39e")]
 [assembly: System.Reflection.AssemblyProductAttribute("PowerPuffBE.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PowerPuffBE.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

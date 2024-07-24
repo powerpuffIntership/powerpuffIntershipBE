@@ -6,7 +6,7 @@ using Model;
 
 public interface IReactorService
 {
-    Task<IEnumerable<ReactorDTO>> GetAllReactors();
+    Task<IEnumerable<ReactorDTO>> GetAllReactors(bool extended = false);
     Task<ReactorDTO> GetReactorWithDetails(Guid reactorId);
     Task<IEnumerable<ReactorDTO>> GetReactorWithImageList();
 }
@@ -27,7 +27,7 @@ public class ReactorService : IReactorService
         _imageRepository = imageRepository;
     }
 
-    public async Task<IEnumerable<ReactorDTO>> GetAllReactors()
+    public async Task<IEnumerable<ReactorDTO>> GetAllReactors(bool extended = false)
     {
         var reactors = await _reactorRepository.GetAllReactors();
         return _reactorMapper.MapListToDTO(reactors.ToList());

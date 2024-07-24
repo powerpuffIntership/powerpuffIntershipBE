@@ -18,7 +18,7 @@ public class ReactorController : ControllerBase
     [HttpGet]
     public async Task<IEnumerable<ReactorDTO>> GetAllReactors()
     {
-        return await _reactorService.GetAllReactors();
+        return await _reactorService.GetAllReactors(true);
     }
 
     [HttpGet]
