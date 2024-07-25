@@ -97,16 +97,7 @@ jobs:
           app-name: 'powerpuffIntershipBE'
           slot-name: 'Production'
           package: .
-      
-      - name: Wait 30s for Appservice to wakeUp
-        run: Start-Sleep -s 30
-        shell: powershell
-      
-      - name: HeartBeat
-        uses: fjogeleit/http-request-action@v1
-        with:
-          url: 'https://powerpuffintershipbe.azurewebsites.net/api/Heartbeat'
-          method: 'GET'
+
   afterDeployAppCheck:
     runs-on: windows-latest
     needs: deploy
