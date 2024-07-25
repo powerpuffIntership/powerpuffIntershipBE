@@ -19,6 +19,9 @@
 
 name: Build and deploy ASP.Net Core app to an Azure Web App
 
+concurrency:
+  group: ${{ github.workflow }}
+  
 env:
   AZURE_WEBAPP_NAME: powerpuffIntershipBE    # set this to the name of your Azure Web App
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
@@ -94,4 +97,31 @@ jobs:
           app-name: 'powerpuffIntershipBE'
           slot-name: 'Production'
           package: .
+      
+      - name: Wait 30s for Appservice to wakeUp
+        run: Start-Sleep -s 30
+        shell: powershell
+      
+      - name: HeartBeat
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://powerpuffintershipbe.azurewebsites.net/api/Heartbeat'
+          method: 'GET'
+  afterDeployAppCheck:
+    runs-on: windows-latest
+    needs: deploy
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      
+    steps:
+      - name: Wait 30s for Appservice to wakeUp
+        run: Start-Sleep -s 30
+        shell: powershell
+      
+      - name: HeartBeat
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://powerpuffintershipbe.azurewebsites.net/api/Heartbeat'
+          method: 'GET'
           
