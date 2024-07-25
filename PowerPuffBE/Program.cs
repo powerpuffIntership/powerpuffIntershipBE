@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PowerPuffBE;
 using PowerPuffBE.Data;
+using Azure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
