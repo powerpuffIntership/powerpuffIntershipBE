@@ -10,6 +10,7 @@ public interface IReactorRepository
     Task<IEnumerable<ReactorEntity>> GetReactorImageList();
     Task Update(ReactorEntity reactor);
 }
+
 public class ReactorRepository : IReactorRepository
 {
     private readonly PowerPuffDbContext _context;
@@ -21,15 +22,21 @@ public class ReactorRepository : IReactorRepository
 
     public async Task<IEnumerable<ReactorEntity>> GetAllReactors(bool extended = false)
     {
+        DateTime now = DateTime.Now;
+        DateTime roundedDownHour = new DateTime(now.Year, now.Month, now.Day, now.Hour, 0, 0);
+        DateTime twentyFourHoursAgo = roundedDownHour.AddHours(-24);
+
         var reactors = _context.Reactors.AsQueryable();
         if (extended)
         {
-            reactors = _context.Reactors.Include(r => r.ProductionChecks).AsQueryable();
+            reactors = _context.Reactors.Include(r => r.ProductionChecks
+                .Where(pd => pd.MeasureTime >= twentyFourHoursAgo
+                             && pd.MeasureTime <= roundedDownHour)).AsQueryable();
         }
 
         return await reactors.ToListAsync();
     }
-    
+
     public async Task<IEnumerable<ReactorEntity>> GetReactorImageList()
     {
         return await _context.Reactors.Where(r => r.ImageId != Guid.Empty).ToListAsync();

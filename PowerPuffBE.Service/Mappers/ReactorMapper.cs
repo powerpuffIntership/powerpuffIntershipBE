@@ -1,6 +1,7 @@
 ﻿namespace PowerPuffBE.Service.Mappers;
 
 using Data.Entities;
+using Helpers;
 using Model;
 using Model.Enums;
 
@@ -38,7 +39,7 @@ public class ReactorMapper : IReactorMapper
             Id = entity.Id,
             Description = entity.Description,
             Name = entity.Name,
-            Status = ((ReactorStatusEnum)entity.Status).ToString().ToLower(),
+            Status = ((ReactorStatusEnum)entity.Status).GetDescription(),
             Reactorcoretemperature = entity.ProductionChecks?.Select(pc =>
             {
                 return new ReactorChartDTO()
