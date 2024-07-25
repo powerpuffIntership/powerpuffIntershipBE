@@ -1,0 +1,14 @@
+PowerPuffBE/bin/
+PowerPuffBE/obj/Debug/net8.0/staticwebassets/msbuild.build.PowerPuffBE.props
+*.cache
+PowerPuffBE/obj/Debug/net8.0/PowerPuffBE.dll
+PowerPuffBE/obj/Debug/net8.0/PowerPuffBE.GeneratedMSBuildEditorConfig.editorconfig
+PowerPuffBE/obj/
+PowerPuffBE.Service/obj/
+PowerPuffBE.Service/bin/
+PowerPuffBE.Model/bin/
+PowerPuffBE.Model/obj/
+PowerPuffBE.Data/obj/
+PowerPuffBE.Data/bin/
+PowerPuffBE/Properties/PublishProfiles/
+.vs/

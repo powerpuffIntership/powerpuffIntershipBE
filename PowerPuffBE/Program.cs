@@ -1,8 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using PowerPuffBE;
 using PowerPuffBE.Data;
+using Azure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddApplicationInsightsTelemetry();
 
 builder.Services.AddControllers();
 // Add services to the container.
