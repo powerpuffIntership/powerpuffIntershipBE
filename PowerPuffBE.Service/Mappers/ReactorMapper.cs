@@ -39,7 +39,7 @@ public class ReactorMapper : IReactorMapper
             Description = entity.Description,
             Name = entity.Name,
             Status = ((ReactorStatusEnum)entity.Status).ToString().ToLower(),
-            Reactorcoretemperature = entity.ProductionChecks.Select(pc =>
+            Reactorcoretemperature = entity.ProductionChecks?.Select(pc =>
             {
                 return new ReactorChartDTO()
                 {
@@ -47,8 +47,8 @@ public class ReactorMapper : IReactorMapper
                     Value = pc.Temperature,
                     //Status = metoda do kalkulacji statusow
                 };
-            }),
-            Reactorpowerproduction = entity.ProductionChecks.Select(pc =>
+            }) ?? Array.Empty<ReactorChartDTO>(),
+            Reactorpowerproduction = entity.ProductionChecks?.Select(pc =>
             {
                 return new ReactorChartDTO()
                 {
@@ -56,7 +56,7 @@ public class ReactorMapper : IReactorMapper
                     Value = pc.PowerProduction,
                     //Status = metoda do kalkulacji statusow
                 };
-            }),
+            }) ?? Array.Empty<ReactorChartDTO>(),
             //Links = generowac linki , poki co hardcoded 
         };
     }
