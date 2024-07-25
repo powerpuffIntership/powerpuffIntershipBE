@@ -11,8 +11,8 @@ public class ReactorDTO
     
     public string ImageContent { get; set; }
     
-    public IEnumerable<ReactorChartDTO> Reactorpowerproduction {get; set;}
-    public IEnumerable<ReactorChartDTO> Reactorcoretemperature {get; set;}
+    public IEnumerable<ReactorChartDTO> ReactorPowerProduction {get; set;}
+    public IEnumerable<ReactorChartDTO> ReactorCoreTemperature {get; set;}
     
     public List<LinkModelDTO> Links {get; set;}
 }

@@ -1,6 +1,7 @@
 ﻿namespace PowerPuffBE.Service.Mappers;
 
 using Data.Entities;
+using Helpers;
 using Model;
 using Model.Enums;
 
@@ -38,25 +39,25 @@ public class ReactorMapper : IReactorMapper
             Id = entity.Id,
             Description = entity.Description,
             Name = entity.Name,
-            Status = ((ReactorStatusEnum)entity.Status).ToString().ToLower(),
-            Reactorcoretemperature = entity.ProductionChecks.Select(pc =>
+            Status = ((ReactorStatusEnum)entity.Status).GetDescription(),
+            ReactorCoreTemperature = entity.ProductionChecks?.Select(pc =>
             {
                 return new ReactorChartDTO()
                 {
-                    Time = pc.MeasureTime.Ticks,
+                    Time = pc.MeasureTime.ToString("yyyy/MM/dd HH:mm:ss"),
                     Value = pc.Temperature,
-                    //Status = metoda do kalkulacji statusow
+                    Status = GetStatus(pc.PowerProduction) // TODO - przekazac liczenie statusu dla studentow
                 };
-            }),
-            Reactorpowerproduction = entity.ProductionChecks.Select(pc =>
+            }) ?? Array.Empty<ReactorChartDTO>(),
+            ReactorPowerProduction = entity.ProductionChecks?.Select(pc =>
             {
                 return new ReactorChartDTO()
                 {
-                    Time = pc.MeasureTime.Ticks,
+                    Time = pc.MeasureTime.ToString("yyyy/MM/dd HH:mm:ss"),
                     Value = pc.PowerProduction,
-                    //Status = metoda do kalkulacji statusow
+                    Status = GetStatus(pc.PowerProduction)
                 };
-            }),
+            }) ?? Array.Empty<ReactorChartDTO>(),
             //Links = generowac linki , poki co hardcoded 
         };
     }
@@ -70,5 +71,19 @@ public class ReactorMapper : IReactorMapper
             Description = reactor.Description,
             ImageContent = image == null ? "No image found" : "data:image/png;base64," + Convert.ToBase64String(image.Image)
         };
+    }
+
+    private string GetStatus(int value)
+    {
+        switch (value)
+        {
+            case <= 50 :
+                return ReactorStatusEnum.InRange.GetDescription();
+            case <= 75:
+                return ReactorStatusEnum.OutOfRange.GetDescription();
+            case > 75:
+                return ReactorStatusEnum.Critical.GetDescription();
+                
+        }
     }
 }

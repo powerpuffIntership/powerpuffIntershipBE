@@ -29,7 +29,7 @@ public class ReactorService : IReactorService
 
     public async Task<IEnumerable<ReactorDTO>> GetAllReactors(bool extended = false)
     {
-        var reactors = await _reactorRepository.GetAllReactors();
+        var reactors = await _reactorRepository.GetAllReactors(extended);
         return _reactorMapper.MapListToDTO(reactors.ToList());
     }
 

@@ -4,8 +4,8 @@ using Enums;
 
 public class ReactorChartDTO
 {
-    public long Time {get; set;}
+    public string Time {get; set;}
     public int Value {get; set;}
     
-    public ReactorStatusEnum Status {get; set;}
+    public string Status {get; set;}
 }
