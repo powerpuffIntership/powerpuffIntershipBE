@@ -33,6 +33,7 @@ public class ReactorRepository : IReactorRepository
             reactors = _context.Reactors.Include(r => r.ProductionChecks
                     .Where(pd => pd.MeasureTime >= twentyFourHoursAgo
                                  && pd.MeasureTime <= roundedDownHour)
+                    // TODO - wywalic ten fragment - bug dla studentow
                     .OrderByDescending(pd => pd.MeasureTime))
                 .AsQueryable();
         }

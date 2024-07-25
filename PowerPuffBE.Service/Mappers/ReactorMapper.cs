@@ -46,7 +46,7 @@ public class ReactorMapper : IReactorMapper
                 {
                     Time = pc.MeasureTime.ToString("yyyy/MM/dd HH:mm:ss"),
                     Value = pc.Temperature,
-                    //Status = metoda do kalkulacji statusow
+                    Status = GetStatus(pc.PowerProduction) // TODO - przekazac liczenie statusu dla studentow
                 };
             }) ?? Array.Empty<ReactorChartDTO>(),
             ReactorPowerProduction = entity.ProductionChecks?.Select(pc =>
@@ -55,7 +55,7 @@ public class ReactorMapper : IReactorMapper
                 {
                     Time = pc.MeasureTime.ToString("yyyy/MM/dd HH:mm:ss"),
                     Value = pc.PowerProduction,
-                    //Status = metoda do kalkulacji statusow
+                    Status = GetStatus(pc.PowerProduction)
                 };
             }) ?? Array.Empty<ReactorChartDTO>(),
             //Links = generowac linki , poki co hardcoded 
@@ -71,5 +71,19 @@ public class ReactorMapper : IReactorMapper
             Description = reactor.Description,
             ImageContent = image == null ? "No image found" : "data:image/png;base64," + Convert.ToBase64String(image.Image)
         };
+    }
+
+    private string GetStatus(int value)
+    {
+        switch (value)
+        {
+            case <= 50 :
+                return ReactorStatusEnum.InRange.GetDescription();
+            case <= 75:
+                return ReactorStatusEnum.OutOfRange.GetDescription();
+            case > 75:
+                return ReactorStatusEnum.Critical.GetDescription();
+                
+        }
     }
 }
