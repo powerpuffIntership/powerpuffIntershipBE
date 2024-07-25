@@ -95,3 +95,9 @@ jobs:
           slot-name: 'Production'
           package: .
           
+      - name: HeartBeat
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://powerpuffintershipbe.azurewebsites.net/'
+          method: 'GET'
+          
