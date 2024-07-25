@@ -105,6 +105,6 @@ jobs:
       - name: HeartBeat
         uses: fjogeleit/http-request-action@v1
         with:
-          url: 'https://powerpuffintershipbe.azurewebsites.net/'
+          url: 'https://powerpuffintershipbe.azurewebsites.net/api/Heartbeat'
           method: 'GET'
           
