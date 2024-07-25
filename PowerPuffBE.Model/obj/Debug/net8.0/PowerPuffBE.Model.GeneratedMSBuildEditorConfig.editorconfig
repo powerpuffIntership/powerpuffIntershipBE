@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PowerPuffBE.Model
-build_property.ProjectDir = C:\ROBERT\powerpuffIntershipBE\PowerPuffBE.Model\
+build_property.ProjectDir = c:\Project\Vattenfall\src\Powerpuffinternship\powerpuffIntershipBE\PowerPuffBE.Model\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
