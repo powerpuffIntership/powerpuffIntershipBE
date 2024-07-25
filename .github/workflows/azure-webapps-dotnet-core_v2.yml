@@ -107,4 +107,21 @@ jobs:
         with:
           url: 'https://powerpuffintershipbe.azurewebsites.net/api/Heartbeat'
           method: 'GET'
+  afterDeployAppCheck:
+    runs-on: windows-latest
+    needs: deploy
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      
+    steps:
+      - name: Wait 30s for Appservice to wakeUp
+        run: Start-Sleep -s 30
+        shell: powershell
+      
+      - name: HeartBeat
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://powerpuffintershipbe.azurewebsites.net/api/Heartbeat'
+          method: 'GET'
           
