@@ -44,7 +44,7 @@ public class ReactorMapper : IReactorMapper
             {
                 return new ReactorChartDTO()
                 {
-                    Time = pc.MeasureTime.Ticks,
+                    Time = pc.MeasureTime.ToString("yyyy/MM/dd HH:mm:ss"),
                     Value = pc.Temperature,
                     //Status = metoda do kalkulacji statusow
                 };
@@ -53,7 +53,7 @@ public class ReactorMapper : IReactorMapper
             {
                 return new ReactorChartDTO()
                 {
-                    Time = pc.MeasureTime.Ticks,
+                    Time = pc.MeasureTime.ToString("yyyy/MM/dd HH:mm:ss"),
                     Value = pc.PowerProduction,
                     //Status = metoda do kalkulacji statusow
                 };
