@@ -40,7 +40,7 @@ public class ReactorMapper : IReactorMapper
             Description = entity.Description,
             Name = entity.Name,
             Status = ((ReactorStatusEnum)entity.Status).GetDescription(),
-            Reactorcoretemperature = entity.ProductionChecks?.Select(pc =>
+            ReactorCoreTemperature = entity.ProductionChecks?.Select(pc =>
             {
                 return new ReactorChartDTO()
                 {
@@ -49,7 +49,7 @@ public class ReactorMapper : IReactorMapper
                     //Status = metoda do kalkulacji statusow
                 };
             }) ?? Array.Empty<ReactorChartDTO>(),
-            Reactorpowerproduction = entity.ProductionChecks?.Select(pc =>
+            ReactorPowerProduction = entity.ProductionChecks?.Select(pc =>
             {
                 return new ReactorChartDTO()
                 {
