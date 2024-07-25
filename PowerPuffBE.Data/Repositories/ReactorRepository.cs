@@ -27,11 +27,14 @@ public class ReactorRepository : IReactorRepository
         DateTime twentyFourHoursAgo = roundedDownHour.AddHours(-24);
 
         var reactors = _context.Reactors.AsQueryable();
+
         if (extended)
         {
             reactors = _context.Reactors.Include(r => r.ProductionChecks
-                .Where(pd => pd.MeasureTime >= twentyFourHoursAgo
-                             && pd.MeasureTime <= roundedDownHour)).AsQueryable();
+                    .Where(pd => pd.MeasureTime >= twentyFourHoursAgo
+                                 && pd.MeasureTime <= roundedDownHour)
+                    .OrderByDescending(pd => pd.MeasureTime))
+                .AsQueryable();
         }
 
         return await reactors.ToListAsync();
