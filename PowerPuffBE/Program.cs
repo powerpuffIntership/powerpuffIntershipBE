@@ -4,7 +4,6 @@ using PowerPuffBE.Data;
 using Azure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
-
 builder.Services.AddApplicationInsightsTelemetry();
 
 builder.Services.AddControllers();
@@ -16,6 +15,15 @@ builder.Services.ConfigureServices();
 
 builder.Services.AddDbContext<PowerPuffDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("PowerPuffDatabase")));
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Policy",
+        policy  =>
+        {
+            policy.AllowAnyHeader().AllowAnyOrigin();
+        });
+});
 
 var app = builder.Build();
 
@@ -31,4 +39,5 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("Policy");
 app.Run();

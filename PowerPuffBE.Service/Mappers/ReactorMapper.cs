@@ -46,7 +46,7 @@ public class ReactorMapper : IReactorMapper
                 {
                     Time = pc.MeasureTime.ToString("yyyy/MM/dd HH:mm:ss"),
                     Value = pc.Temperature,
-                    Status = GetStatus(pc.PowerProduction) // TODO - przekazac liczenie statusu dla studentow
+                    Status = GetTemperatureStatus(pc.Temperature) // TODO - przekazac liczenie statusu dla studentow
                 };
             }) ?? Array.Empty<ReactorChartDTO>(),
             ReactorPowerProduction = entity.ProductionChecks?.Select(pc =>
@@ -55,7 +55,7 @@ public class ReactorMapper : IReactorMapper
                 {
                     Time = pc.MeasureTime.ToString("yyyy/MM/dd HH:mm:ss"),
                     Value = pc.PowerProduction,
-                    Status = GetStatus(pc.PowerProduction)
+                    Status = GetPowerProductionStatus(pc.PowerProduction)
                 };
             }) ?? Array.Empty<ReactorChartDTO>(),
             //Links = generowac linki , poki co hardcoded 
@@ -73,15 +73,29 @@ public class ReactorMapper : IReactorMapper
         };
     }
 
-    private string GetStatus(int value)
+    private string GetTemperatureStatus(int value)
     {
         switch (value)
         {
-            case <= 50 :
-                return ReactorStatusEnum.InRange.GetDescription();
-            case <= 75:
+            case <= 25 :
                 return ReactorStatusEnum.OutOfRange.GetDescription();
+            case <= 75:
+                return ReactorStatusEnum.InRange.GetDescription();
             case > 75:
+                return ReactorStatusEnum.Critical.GetDescription();
+                
+        }
+    }
+    
+    private string GetPowerProductionStatus(int value)
+    {
+        switch (value)
+        {
+            case <= 150 :
+                return ReactorStatusEnum.OutOfRange.GetDescription();
+            case <= 250:
+                return ReactorStatusEnum.InRange.GetDescription();
+            case > 250:
                 return ReactorStatusEnum.Critical.GetDescription();
                 
         }

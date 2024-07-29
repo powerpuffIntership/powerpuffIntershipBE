@@ -27,8 +27,6 @@ public static class DataSeed
             var daysToInsert = 10;
 
             Random random = new Random();
-            int min = 30;
-            int max = 90;
             List<ReactorProductionChecksEntity> generatedChecksForReactor = new List<ReactorProductionChecksEntity>();
             for (int i = 1; i <= daysToInsert; i++)
             {
@@ -37,8 +35,8 @@ public static class DataSeed
                     .Select(index => new ReactorProductionChecksEntity()
                     {
                         MeasureTime = index > 1 ? date.AddHours(index -1) : date,
-                        Temperature = random.Next(min, max),
-                        PowerProduction = random.Next(min, max),
+                        Temperature = GetTemperature(random),
+                        PowerProduction = GetPowerProduction(random),
                         ReactorId = reactor.Id,
                     }).ToList();
                 generatedChecksForReactor.AddRange(listPerDay);
@@ -48,5 +46,21 @@ public static class DataSeed
         }
 
         return checksGenerated;
+    }
+
+    private static int GetTemperature(Random random)
+    {
+        int min = 0;
+        int max = 100;
+
+        return random.Next(min, max);
+    }
+    
+    private static int GetPowerProduction(Random random)
+    {
+        int min = 100;
+        int max = 300;
+
+        return random.Next(min, max);
     }
 }
