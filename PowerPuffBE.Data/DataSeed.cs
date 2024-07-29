@@ -35,7 +35,7 @@ public static class DataSeed
                     .Select(index => new ReactorProductionChecksEntity()
                     {
                         MeasureTime = index > 1 ? date.AddHours(index -1) : date,
-                        Temperature = GetTemperature(random),
+                        Temperature = index % 2 == 0 ?  50 - GetTemperature(random) : 50 + GetTemperature(random) ,
                         PowerProduction = GetPowerProduction(random),
                         ReactorId = reactor.Id,
                     }).ToList();
@@ -50,8 +50,8 @@ public static class DataSeed
 
     private static int GetTemperature(Random random)
     {
-        int min = 0;
-        int max = 100;
+        int min = 5;
+        int max = 25;
 
         return random.Next(min, max);
     }

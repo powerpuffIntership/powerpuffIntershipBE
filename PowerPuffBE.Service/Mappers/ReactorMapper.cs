@@ -77,11 +77,11 @@ public class ReactorMapper : IReactorMapper
     {
         switch (value)
         {
-            case <= 25 :
+            case <= 30 :
                 return ReactorStatusEnum.OutOfRange.GetDescription();
-            case <= 75:
+            case <= 60:
                 return ReactorStatusEnum.InRange.GetDescription();
-            case > 75:
+            case > 60:
                 return ReactorStatusEnum.Critical.GetDescription();
                 
         }
