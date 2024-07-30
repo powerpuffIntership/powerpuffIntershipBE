@@ -77,11 +77,15 @@ public class ReactorMapper : IReactorMapper
     {
         switch (value)
         {
-            case <= 30 :
+            case < 250:
+                return ReactorStatusEnum.Critical.GetDescription();
+            case < 400:
                 return ReactorStatusEnum.OutOfRange.GetDescription();
-            case <= 60:
+            case < 800:
                 return ReactorStatusEnum.InRange.GetDescription();
-            case > 60:
+            case <= 950:
+                return ReactorStatusEnum.OutOfRange.GetDescription();
+            case > 950:
                 return ReactorStatusEnum.Critical.GetDescription();
                 
         }
@@ -91,11 +95,15 @@ public class ReactorMapper : IReactorMapper
     {
         switch (value)
         {
-            case <= 150 :
+            case < 10:
+                return ReactorStatusEnum.Critical.GetDescription();
+            case <= 50 :
                 return ReactorStatusEnum.OutOfRange.GetDescription();
-            case <= 250:
+            case < 250 :
                 return ReactorStatusEnum.InRange.GetDescription();
-            case > 250:
+            case <= 300:
+                return ReactorStatusEnum.OutOfRange.GetDescription();
+            case > 300:
                 return ReactorStatusEnum.Critical.GetDescription();
                 
         }
