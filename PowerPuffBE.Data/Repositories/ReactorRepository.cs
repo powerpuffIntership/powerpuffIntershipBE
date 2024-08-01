@@ -25,20 +25,10 @@ public class ReactorRepository : IReactorRepository
         DateTime now = DateTime.Now;
         DateTime roundedDownHour = new DateTime(now.Year, now.Month, now.Day, now.Hour, 0, 0);
         DateTime twentyFourHoursAgo = roundedDownHour.AddHours(-24);
-
-        var reactors = _context.Reactors.AsQueryable();
-
-        if (extended)
-        {
-            reactors = _context.Reactors.Include(r => r.ProductionChecks
-                    .Where(pd => pd.MeasureTime >= twentyFourHoursAgo
-                                 && pd.MeasureTime <= roundedDownHour)
-                    // TODO - wywalic ten fragment - bug dla studentow
-                    .OrderByDescending(pd => pd.MeasureTime))
-                .AsQueryable();
-        }
-
-        return await reactors.ToListAsync();
+        
+        return await _context.Reactors.Include(r => r.ProductionChecks
+            .Where(pd => pd.MeasureTime >= twentyFourHoursAgo
+                         && pd.MeasureTime <= roundedDownHour)).ToListAsync();
     }
 
     public async Task<IEnumerable<ReactorEntity>> GetReactorImageList()
