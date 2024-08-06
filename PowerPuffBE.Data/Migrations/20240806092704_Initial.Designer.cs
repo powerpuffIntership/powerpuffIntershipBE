@@ -12,18 +12,17 @@ using PowerPuffBE.Data;
 namespace PowerPuffBE.Data.Migrations
 {
     [DbContext(typeof(PowerPuffDbContext))]
-    [Migration("20240722170008_[PowerPuff_Initial]")]
-    partial class PowerPuff_Initial
+    [Migration("20240806092704_Initial")]
+    partial class Initial
     {
-        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.7")
+                .HasAnnotation("ProductVersion", "6.0.32")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("PowerPuffBE.Data.Entities.ImageEntity", b =>
                 {

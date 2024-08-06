@@ -5,10 +5,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PowerPuffBE.Data.Migrations
 {
-    /// <inheritdoc />
-    public partial class PowerPuff_Initial : Migration
+    public partial class Initial : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -67,7 +65,6 @@ namespace PowerPuffBE.Data.Migrations
                 column: "ReactorId");
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
