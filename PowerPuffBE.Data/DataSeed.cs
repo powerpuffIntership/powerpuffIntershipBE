@@ -18,29 +18,61 @@ public static class DataSeed
             }).ToList();
 
     }
-    
+
+    public static int RandomTemperature(bool negative)
+    {
+        Random random = new Random();
+        int defaultTemperature = 600;
+        int temperatureMaxOffset = 600;
+        int temperature;
+
+        if (negative)
+            temperature = random.Next(defaultTemperature - temperatureMaxOffset, defaultTemperature);
+        else
+            temperature = random.Next(defaultTemperature, defaultTemperature + temperatureMaxOffset);
+
+        return temperature;
+    }
+    public static int RandomPowerOutput(bool negative)
+    {
+        Console.WriteLine(negative);
+        Random random = new Random();
+        int defaultOutput = 200;
+        int outputMaxOffset = 200;
+        int powerOutput;
+
+        if (!negative)
+            powerOutput = random.Next(defaultOutput - outputMaxOffset, defaultOutput);
+        else
+            powerOutput = random.Next(defaultOutput, defaultOutput + outputMaxOffset);
+        return powerOutput;
+    }
+
+
     public static List<ReactorProductionChecksEntity> SeedProductionChecks(List<ReactorEntity> reactors)
     {
         List<ReactorProductionChecksEntity> checksGenerated = new List<ReactorProductionChecksEntity>();
         foreach (var reactor in reactors)
         {
             var daysToInsert = 10;
-
-            Random random = new Random();
-            int min = 30;
-            int max = 90;
             List<ReactorProductionChecksEntity> generatedChecksForReactor = new List<ReactorProductionChecksEntity>();
             for (int i = 1; i <= daysToInsert; i++)
             {
                 var date = i == 1 ? (DateTime.Now).Date : (DateTime.Now.AddDays(i-1)).Date;
                 var listPerDay = Enumerable.Range(1, 24)
                     .Select(index => new ReactorProductionChecksEntity()
-                    {
-                        MeasureTime = index > 1 ? date.AddHours(index -1) : date,
-                        Temperature = random.Next(min, max),
-                        PowerProduction = random.Next(min, max),
-                        ReactorId = reactor.Id,
-                    }).ToList();
+                    {}).ToList();
+                int n = 1;
+                listPerDay = Enumerable.Range(n, 24)
+                .Select(index => new ReactorProductionChecksEntity()
+                {
+                    MeasureTime = index > 1 ? date.AddHours(index - 1) : date,
+                    Temperature = RandomTemperature(index % 2 == 0),
+                    PowerProduction = RandomPowerOutput( index % 2 == 0),
+                    ReactorId = reactor.Id,
+                }).ToList();
+
+
                 generatedChecksForReactor.AddRange(listPerDay);
             }
             
