@@ -23,6 +23,19 @@ public class ImageController : ControllerBase
         return Ok(images);
     }
 
+    [HttpGet]
+    [Route("get-image/{name}")]
+
+    public async Task<IActionResult> GetImageByName(string name)
+    {
+        var image = await _imageService.GetImageByName(name);
+        if(image == null)
+        {
+            return BadRequest("Image not found");
+        }
+        return Ok(image.ImageContent);
+    }
+
     [HttpPost]
     [Route("upload")]
     public async Task<IActionResult> UploadImage([FromForm] IFormFile imageFile)
