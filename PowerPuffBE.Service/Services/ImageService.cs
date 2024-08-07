@@ -7,6 +7,8 @@ using Model;
 public interface IImageService
 {
     Task<IEnumerable<ImageDTO>> GetImages();
+
+    Task<ImageDTO> GetImageByName(string name);
     Task<Guid> UploadImage(string name, byte[] imageData);
     Task UploadForReactor(Guid reactorId, string fileName, byte[] imageData);
 }
@@ -44,6 +46,30 @@ public class ImageService : IImageService
             throw;
         }
         
+    }
+
+    public async Task<ImageDTO> GetImageByName(string name)
+    {
+        var image = await _imageRepository.GetImageByName(name);
+        if (image == null)
+        {
+            return null;
+        }
+
+        try
+        {
+            return new ImageDTO()
+            {
+                Id = image.Id,
+                Name = image.Name,
+                ImageContent = Convert.ToBase64String(image.Image)
+            };
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 
     public async Task<Guid> UploadImage(string name, byte[] imageData)
