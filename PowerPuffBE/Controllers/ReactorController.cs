@@ -20,6 +20,12 @@ public class ReactorController : ControllerBase
     {
         return await _reactorService.GetAllReactors(true);
     }
+    [HttpGet]
+    [Route("status")]
+    public async Task<SafetyStatusModelDTO> GetReactorWithStatus()
+    {
+        return await _reactorService.GetAllReactorsToStatus(true);
+    }
 
     [HttpGet]
     [Route("image-list")]
