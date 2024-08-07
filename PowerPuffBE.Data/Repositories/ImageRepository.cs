@@ -7,6 +7,8 @@ public interface IImageRepository
 {
     Task<IEnumerable<ImageEntity>> GetImages();
     Task<ImageEntity> GetImageById(Guid id);
+
+    Task<ImageEntity> GetImageByName(string name);
     Task<Guid> Add(ImageEntity image);
 }
 
@@ -27,6 +29,11 @@ public class ImageRepository : IImageRepository
     public async Task<ImageEntity> GetImageById(Guid id)
     {
         return await _context.Image.FirstOrDefaultAsync(x => x.Id.Equals(id));
+    }
+
+    public async Task<ImageEntity> GetImageByName(string name)
+    {
+        return await _context.Image.FirstOrDefaultAsync(x => x.Name.Equals(name));
     }
 
     public async Task<Guid> Add(ImageEntity image)
