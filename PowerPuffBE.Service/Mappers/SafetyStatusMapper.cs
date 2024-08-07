@@ -27,10 +27,27 @@ namespace PowerPuffBE.Service.Mappers
             }
             return new SafetyStatusModelDTO()
             {
-                sectionInfo = "",
-                StatusPowerProduction = GetProductionStatus(listOfTemperatures),
-                StatusCoreTemperature = GetTemperatureStatus(listOfPowerProduction),
+                StatusPowerProduction = GetProductionStatus(listOfPowerProduction),
+                StatusCoreTemperature = GetTemperatureStatus(listOfTemperatures),
+                sectionInfo = GetSectionInfoStatus(GetProductionStatus(listOfPowerProduction), GetTemperatureStatus(listOfTemperatures)),
             };
+        }
+        private string GetSectionInfoStatus(string ProductionStatus, string TemperatureStatus)
+        {
+            string returnSectionInfo = string.Empty;
+            if((ProductionStatus.Equals("critical") || ProductionStatus.Equals("out of range")) && (TemperatureStatus.Equals("critical") || TemperatureStatus.Equals("out of range")))
+            {
+                returnSectionInfo = "Core temperature and production power output has exeeded safe levels";
+            }
+            else if(ProductionStatus.Equals("critical") || ProductionStatus.Equals("out of range"))
+            {
+                returnSectionInfo = "Production power output has exeeded safe levels";
+            }
+            else if(TemperatureStatus.Equals("critical") || TemperatureStatus.Equals("out of range"))
+            {
+                returnSectionInfo = "Core temperature has exeeded safe levels";
+            }
+            return returnSectionInfo;
         }
         private string GetTemperatureStatus(List<int> temperature)
         {
@@ -39,7 +56,7 @@ namespace PowerPuffBE.Service.Mappers
             minTemp = temperature.Min();
             maxTemp = temperature.Max();
             if (minTemp < 250 || maxTemp >= 950) 
-            { 
+            {
                 returnMessage = "critical";
             }
             else if ((250 <= minTemp && minTemp < 400) || (800 <= maxTemp && maxTemp < 950))
