@@ -11,6 +11,7 @@ public interface IImageService
     Task<ImageDTO> GetImageByName(string name);
     Task<Guid> UploadImage(string name, byte[] imageData);
     Task UploadForReactor(Guid reactorId, string fileName, byte[] imageData);
+    
 }
 public class ImageService : IImageService
 {
@@ -62,7 +63,9 @@ public class ImageService : IImageService
             {
                 Id = image.Id,
                 Name = image.Name,
-                ImageContent = Convert.ToBase64String(image.Image)
+                ImageContent = image == null
+                ? "No image found"
+                : "data:image/png;base64," + Convert.ToBase64String(image.Image)
             };
         }
         catch (Exception e)
