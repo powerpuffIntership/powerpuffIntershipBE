@@ -65,9 +65,7 @@ public class ImageService : IImageService
             {
                 Id = image.Id,
                 Name = image.Name,
-                ImageContent = image == null
-                ? "No image found"
-                : "data:image/png;base64," + Convert.ToBase64String(image.Image)
+                ImageContent = "data:image/png;base64," + Convert.ToBase64String(image.Image)
             };
         }
         catch (Exception e)
