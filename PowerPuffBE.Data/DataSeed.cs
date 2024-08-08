@@ -58,12 +58,9 @@ public static class DataSeed
             List<ReactorProductionChecksEntity> generatedChecksForReactor = new List<ReactorProductionChecksEntity>();
             for (int i = 1; i <= daysToInsert; i++)
             {
-                var date = i == 1 ? (DateTime.Now).Date : (DateTime.Now.AddDays(i-1)).Date;
-                var listPerDay = Enumerable.Range(1, 24)
-                    .Select(index => new ReactorProductionChecksEntity()
-                    {}).ToList();
+                var date = i == 1 ? (DateTime.Now).Date : (DateTime.Now.AddDays(i+1)).Date;
                 int n = 1;
-                listPerDay = Enumerable.Range(n, 24)
+                var listPerDay = Enumerable.Range(n, 24)
                 .Select(index => new ReactorProductionChecksEntity()
                 {
                     MeasureTime = index > 1 ? date.AddHours(index - 1) : date,

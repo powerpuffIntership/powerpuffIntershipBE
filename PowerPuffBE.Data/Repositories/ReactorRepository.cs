@@ -13,6 +13,7 @@ public interface IReactorRepository
 
 public class ReactorRepository : IReactorRepository
 {
+
     private readonly PowerPuffDbContext _context;
 
     public ReactorRepository(PowerPuffDbContext context)
@@ -28,7 +29,7 @@ public class ReactorRepository : IReactorRepository
         
         return await _context.Reactors.Include(r => r.ProductionChecks
             .Where(pd => pd.MeasureTime >= twentyFourHoursAgo
-                         && pd.MeasureTime <= roundedDownHour)).ToListAsync();
+                         && pd.MeasureTime <= roundedDownHour).OrderByDescending(pd => pd.MeasureTime)).ToListAsync();
     }
 
     public async Task<IEnumerable<ReactorEntity>> GetReactorImageList()
