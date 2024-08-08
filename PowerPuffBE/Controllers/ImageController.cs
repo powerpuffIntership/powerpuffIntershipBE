@@ -31,7 +31,7 @@ public class ImageController : ControllerBase
         try
         {
             var image = await _imageService.GetImageByName(name);
-            return Ok(image.ImageContent);
+            return Ok(image);
         }
         catch(Exception e)
         {
