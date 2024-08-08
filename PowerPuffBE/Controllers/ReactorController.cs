@@ -24,7 +24,7 @@ public class ReactorController : ControllerBase
     [Route("status")]
     public async Task<SafetyStatusModelDTO> GetReactorWithStatus()
     {
-        return await _reactorService.GetAllReactorsToStatus(true);
+        return await _reactorService.GetReactorOverallStatus();
     }
 
     [HttpGet]

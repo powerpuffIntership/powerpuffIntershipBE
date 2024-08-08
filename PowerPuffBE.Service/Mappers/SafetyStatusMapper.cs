@@ -1,5 +1,6 @@
 ﻿using PowerPuffBE.Data.Entities;
 using PowerPuffBE.Model;
+using PowerPuffBE.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,20 @@ namespace PowerPuffBE.Service.Mappers
     public interface ISafetyStatusMapper
     {
         SafetyStatusModelDTO MapListToDTO(List<ReactorEntity> entityList);
-    }
+    } 
+
     public class SafetyStatusMapper : ISafetyStatusMapper
     {
+        const int temp250 = 250;
+        const int temp400 = 400;
+        const int temp800 = 800;
+        const int temp950 = 950;
+
+        const int prod10 = 10;
+        const int prod50 = 50;
+        const int prod250 = 250;
+        const int prod300 = 300;
+
         public SafetyStatusModelDTO MapListToDTO(List<ReactorEntity> entityList)
         {
             List<int> listOfTemperatures = new List<int>();
@@ -35,15 +47,16 @@ namespace PowerPuffBE.Service.Mappers
         private string GetSectionInfoStatus(string ProductionStatus, string TemperatureStatus)
         {
             string returnSectionInfo = string.Empty;
-            if((ProductionStatus.Equals("critical") || ProductionStatus.Equals("out of range")) && (TemperatureStatus.Equals("critical") || TemperatureStatus.Equals("out of range")))
+            if((ProductionStatus.Equals(ReactorStatusEnum.Critical.ToString()) || ProductionStatus.Equals(ReactorStatusEnum.OutOfRange.ToString())) && 
+                (TemperatureStatus.Equals(ReactorStatusEnum.Critical.ToString()) || TemperatureStatus.Equals(ReactorStatusEnum.OutOfRange.ToString())))
             {
                 returnSectionInfo = "Core temperature and production power output has exeeded safe levels";
             }
-            else if(ProductionStatus.Equals("critical") || ProductionStatus.Equals("out of range"))
+            else if(ProductionStatus.Equals(ReactorStatusEnum.Critical.ToString()) || ProductionStatus.Equals(ReactorStatusEnum.OutOfRange.ToString()))
             {
                 returnSectionInfo = "Production power output has exeeded safe levels";
             }
-            else if(TemperatureStatus.Equals("critical") || TemperatureStatus.Equals("out of range"))
+            else if(TemperatureStatus.Equals(ReactorStatusEnum.Critical.ToString()) || TemperatureStatus.Equals(ReactorStatusEnum.OutOfRange.ToString()))
             {
                 returnSectionInfo = "Core temperature has exeeded safe levels";
             }
@@ -55,17 +68,17 @@ namespace PowerPuffBE.Service.Mappers
             string returnMessage = string.Empty;
             minTemp = temperature.Min();
             maxTemp = temperature.Max();
-            if (minTemp < 250 || maxTemp >= 950) 
+            if (minTemp < temp250 || maxTemp >= temp950) 
             {
-                returnMessage = "critical";
+                returnMessage = ReactorStatusEnum.Critical.ToString();
             }
-            else if ((250 <= minTemp && minTemp < 400) || (800 <= maxTemp && maxTemp < 950))
+            else if ((temp250 <= minTemp && minTemp < temp400) || (temp800 <= maxTemp && maxTemp < temp950))
             {
-                returnMessage = "out of range";
+                returnMessage = ReactorStatusEnum.OutOfRange.ToString();
             }
-            else if((400 <= minTemp && minTemp < 800) || (400 <= maxTemp && maxTemp < 800))
+            else if((temp400 <= minTemp && minTemp < temp800) || (temp400 <= maxTemp && maxTemp < temp800))
             {
-                returnMessage = "in range";
+                returnMessage = ReactorStatusEnum.InRange.ToString();
             }
             return returnMessage;
         }
@@ -75,17 +88,17 @@ namespace PowerPuffBE.Service.Mappers
             string returnMessage = string.Empty;
             minProd = production.Min();
             maxProd = production.Max();
-            if (minProd < 10 || maxProd >= 300)
+            if (minProd < prod10 || maxProd >= prod300)
             {
-                returnMessage = "critical";
+                returnMessage = ReactorStatusEnum.Critical.ToString();
             }
-            else if ((10 <= minProd && minProd < 50) || (250 <= maxProd && maxProd < 300))
+            else if ((prod10 <= minProd && minProd < prod50) || (prod250 <= maxProd && maxProd < prod300))
             {
-                returnMessage = "out of range";
+                returnMessage = ReactorStatusEnum.OutOfRange.ToString();
             }
-            else if ((50 <= minProd && minProd < 250) || (50 <= maxProd && maxProd < 250))
+            else if ((prod50 <= minProd && minProd < prod250) || (prod50 <= maxProd && maxProd < prod250))
             {
-                returnMessage = "in range";
+                returnMessage = ReactorStatusEnum.InRange.ToString();
             }
             return returnMessage;
 

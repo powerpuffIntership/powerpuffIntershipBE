@@ -9,7 +9,7 @@ public interface IReactorService
     Task<IEnumerable<ReactorDTO>> GetAllReactors(bool extended = false);
     Task<ReactorDTO> GetReactorWithDetails(Guid reactorId);
     Task<IEnumerable<ReactorDTO>> GetReactorWithImageList();
-    Task<SafetyStatusModelDTO> GetAllReactorsToStatus(bool extended = false);
+    Task<SafetyStatusModelDTO> GetReactorOverallStatus();
 }
 
 public class ReactorService : IReactorService
@@ -33,12 +33,12 @@ public class ReactorService : IReactorService
 
     public async Task<IEnumerable<ReactorDTO>> GetAllReactors(bool extended = false)
     {
-        var reactors = await _reactorRepository.GetAllReactors(extended);
+        var reactors = await _reactorRepository.GetAllReactors(true);
         return _reactorMapper.MapListToDTO(reactors.ToList());
     }
-    public async Task<SafetyStatusModelDTO> GetAllReactorsToStatus(bool extended = false)
+    public async Task<SafetyStatusModelDTO> GetReactorOverallStatus()
     {
-        var reactors = await _reactorRepository.GetAllReactors(extended);
+        var reactors = await _reactorRepository.GetAllReactors(true);
         return _safetyStatusMapper.MapListToDTO(reactors.ToList());
     }
 
