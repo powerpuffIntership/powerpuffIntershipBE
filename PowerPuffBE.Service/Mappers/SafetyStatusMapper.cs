@@ -49,16 +49,16 @@ namespace PowerPuffBE.Service.Mappers
         private string GetSectionInfoStatus(string ProductionStatus, string TemperatureStatus)
         {
             string returnSectionInfo = string.Empty;
-            if((ProductionStatus.Equals(ReactorStatusEnum.Critical.ToString()) || ProductionStatus.Equals(ReactorStatusEnum.OutOfRange.ToString())) && 
-                (TemperatureStatus.Equals(ReactorStatusEnum.Critical.ToString()) || TemperatureStatus.Equals(ReactorStatusEnum.OutOfRange.ToString())))
+            if((ProductionStatus.Equals(ReactorStatusEnum.Critical.ToString().ToLower()) || ProductionStatus.Equals(ReactorStatusEnum.OutOfRange.ToString().ToLower())) && 
+                (TemperatureStatus.Equals(ReactorStatusEnum.Critical.ToString().ToLower()) || TemperatureStatus.Equals(ReactorStatusEnum.OutOfRange.ToString().ToLower())))
             {
                 returnSectionInfo = "Core temperature and production power output has exeeded safe levels";
             }
-            else if(ProductionStatus.Equals(ReactorStatusEnum.Critical.ToString()) || ProductionStatus.Equals(ReactorStatusEnum.OutOfRange.ToString()))
+            else if(ProductionStatus.Equals(ReactorStatusEnum.Critical.ToString().ToLower()) || ProductionStatus.Equals(ReactorStatusEnum.OutOfRange.ToString().ToLower()))
             {
                 returnSectionInfo = "Production power output has exeeded safe levels";
             }
-            else if(TemperatureStatus.Equals(ReactorStatusEnum.Critical.ToString()) || TemperatureStatus.Equals(ReactorStatusEnum.OutOfRange.ToString()))
+            else if(TemperatureStatus.Equals(ReactorStatusEnum.Critical.ToString().ToLower()) || TemperatureStatus.Equals(ReactorStatusEnum.OutOfRange.ToString().ToLower()))
             {
                 returnSectionInfo = "Core temperature has exeeded safe levels";
             }
@@ -72,15 +72,15 @@ namespace PowerPuffBE.Service.Mappers
             maxTemp = temperature.Max();
             if (minTemp < temp250 || maxTemp >= temp950) 
             {
-                returnMessage = ReactorStatusEnum.Critical.ToString();
+                returnMessage = ReactorStatusEnum.Critical.ToString().ToLower();
             }
             else if ((temp250 <= minTemp && minTemp < temp400) || (temp800 <= maxTemp && maxTemp < temp950))
             {
-                returnMessage = ReactorStatusEnum.OutOfRange.ToString();
+                returnMessage = ReactorStatusEnum.OutOfRange.ToString().ToLower();
             }
             else if((temp400 <= minTemp && minTemp < temp800) || (temp400 <= maxTemp && maxTemp < temp800))
             {
-                returnMessage = ReactorStatusEnum.InRange.ToString();
+                returnMessage = ReactorStatusEnum.InRange.ToString().ToLower();
             }
             return returnMessage;
         }
@@ -92,15 +92,15 @@ namespace PowerPuffBE.Service.Mappers
             maxProd = production.Max();
             if (minProd < prod10 || maxProd >= prod300)
             {
-                returnMessage = ReactorStatusEnum.Critical.ToString();
+                returnMessage = ReactorStatusEnum.Critical.ToString().ToLower();
             }
             else if ((prod10 <= minProd && minProd < prod50) || (prod250 <= maxProd && maxProd < prod300))
             {
-                returnMessage = ReactorStatusEnum.OutOfRange.ToString();
+                returnMessage = ReactorStatusEnum.OutOfRange.ToString().ToLower();
             }
             else if ((prod50 <= minProd && minProd < prod250) || (prod50 <= maxProd && maxProd < prod250))
             {
-                returnMessage = ReactorStatusEnum.InRange.ToString();
+                returnMessage = ReactorStatusEnum.InRange.ToString().ToLower();
             }
             return returnMessage;
 
