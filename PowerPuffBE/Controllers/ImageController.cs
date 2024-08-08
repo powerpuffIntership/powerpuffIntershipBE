@@ -4,6 +4,7 @@ using Data.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Model;
 using Service.Services;
+using System.IO;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -46,8 +47,9 @@ public class ImageController : ControllerBase
             imageData = ms.ToArray();
         }
 
-        var imageId = await _imageService.UploadImage(imageFile.FileName, imageData);
+        string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(imageFile.FileName);
 
+        var imageId = await _imageService.UploadImage(fileNameWithoutExtension, imageData);
         return Ok(imageId);
     }
     
