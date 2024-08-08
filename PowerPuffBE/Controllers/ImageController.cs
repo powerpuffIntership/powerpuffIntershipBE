@@ -4,6 +4,7 @@ using Data.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Model;
 using Service.Services;
+using System.IO;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -23,6 +24,22 @@ public class ImageController : ControllerBase
         return Ok(images);
     }
 
+    [HttpGet]
+    [Route("get-image/{name}")]
+    public async Task<IActionResult> GetImageByName(string name)
+    {
+        try
+        {
+            var image = await _imageService.GetImageByName(name);
+            return Ok(image.ImageContent);
+        }
+        catch(Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+        
+    }
+
     [HttpPost]
     [Route("upload")]
     public async Task<IActionResult> UploadImage([FromForm] IFormFile imageFile)
@@ -38,8 +55,9 @@ public class ImageController : ControllerBase
             imageData = ms.ToArray();
         }
 
-        var imageId = await _imageService.UploadImage(imageFile.FileName, imageData);
+        string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(imageFile.FileName);
 
+        var imageId = await _imageService.UploadImage(fileNameWithoutExtension, imageData);
         return Ok(imageId);
     }
     
