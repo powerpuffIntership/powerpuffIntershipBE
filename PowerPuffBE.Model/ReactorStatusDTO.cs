@@ -4,6 +4,6 @@ using Enums;
 
 public class ReactorStatusDTO
 {
-    public ReactorStatusEnum CoreTempStatus { get; set;}
-    public ReactorStatusEnum PowerProdStatus { get; set;}
+    public string CoreTempStatus { get; set;}
+    public string PowerProdStatus { get; set;}
 }

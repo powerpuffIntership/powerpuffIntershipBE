@@ -13,6 +13,8 @@ namespace PowerPuffBE.Service.Mappers
     public interface ISafetyStatusMapper
     {
         SafetyStatusModelDTO MapListToDTO(List<ReactorEntity> entityList);
+        string GetTemperatureStatus(List<int> temperature);
+        string GetProductionStatus(List<int> production);
     } 
 
     public class SafetyStatusMapper : ISafetyStatusMapper
@@ -62,7 +64,7 @@ namespace PowerPuffBE.Service.Mappers
             }
             return returnSectionInfo;
         }
-        private string GetTemperatureStatus(List<int> temperature)
+        public string GetTemperatureStatus(List<int> temperature)
         {
             int minTemp, maxTemp;
             string returnMessage = string.Empty;
@@ -82,7 +84,7 @@ namespace PowerPuffBE.Service.Mappers
             }
             return returnMessage;
         }
-        private string GetProductionStatus(List<int> production)
+        public string GetProductionStatus(List<int> production)
         {
             int minProd, maxProd;
             string returnMessage = string.Empty;
