@@ -56,7 +56,7 @@ public class ImageService : IImageService
         var image = await _imageRepository.GetImageByName(name);
         if (image == null)
         {
-            return null;
+            throw new Exception($"Image not found by its name{name}");
         }
 
         try
