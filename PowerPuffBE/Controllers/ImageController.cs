@@ -28,8 +28,16 @@ public class ImageController : ControllerBase
     [Route("get-image/{name}")]
     public async Task<IActionResult> GetImageByName(string name)
     {
-        var image = await _imageService.GetImageByName(name);
-        return Ok(image.ImageContent);
+        try
+        {
+            var image = await _imageService.GetImageByName(name);
+            return Ok(image.ImageContent);
+        }
+        catch(Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+        
     }
 
     [HttpPost]
