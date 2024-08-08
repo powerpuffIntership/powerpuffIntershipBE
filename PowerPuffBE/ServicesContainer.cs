@@ -15,6 +15,7 @@ public static class ServicesContainer
         services.AddScoped<IImageService, ImageService>();
         services.AddScoped<IReactorService, ReactorService>();
         services.AddScoped<IReactorMapper, ReactorMapper>();
+        services.AddScoped<ISafetyStatusMapper, SafetyStatusMapper>();
     }
 
     public static void SeedDatabase(WebApplication app)
