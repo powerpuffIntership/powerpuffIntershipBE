@@ -41,7 +41,7 @@ public static class DataSeed
         int outputMaxOffset = 200;
         int powerOutput;
 
-        if (!negative)
+        if (negative)
             powerOutput = random.Next(defaultOutput - outputMaxOffset, defaultOutput);
         else
             powerOutput = random.Next(defaultOutput, defaultOutput + outputMaxOffset);
@@ -68,7 +68,7 @@ public static class DataSeed
                 {
                     MeasureTime = index > 1 ? date.AddHours(index - 1) : date,
                     Temperature = RandomTemperature(index % 2 == 0),
-                    PowerProduction = RandomPowerOutput( index % 2 == 0),
+                    PowerProduction = RandomPowerOutput( index % 2 == 1),
                     ReactorId = reactor.Id,
                 }).ToList();
 
