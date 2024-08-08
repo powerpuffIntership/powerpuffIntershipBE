@@ -25,14 +25,9 @@ public class ImageController : ControllerBase
 
     [HttpGet]
     [Route("get-image/{name}")]
-
     public async Task<IActionResult> GetImageByName(string name)
     {
         var image = await _imageService.GetImageByName(name);
-        if(image == null)
-        {
-            return BadRequest("Image not found");
-        }
         return Ok(image.ImageContent);
     }
 
