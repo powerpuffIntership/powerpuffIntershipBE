@@ -9,7 +9,9 @@ public interface IImageService
     Task<IEnumerable<ImageDTO>> GetImages();
 
     Task<ImageDTO> GetImageByName(string name);
+
     Task<Guid> UploadImage(string name, byte[] imageData);
+
     Task UploadForReactor(Guid reactorId, string fileName, byte[] imageData);
     
 }
